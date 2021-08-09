@@ -10,8 +10,8 @@
   "engines": {
     "node": "^12.22 || ^14.13 || >=16"
   },
-  "repository": "git@github.com:reconbot/typescript-library-template.git",
-  "homepage": "https://github.com/reconbot/typescript-library-template",
+  "repository": "git@github.com:reconbot/inside-out-async.git",
+  "homepage": "https://github.com/reconbot/inside-out-async",
   "scripts": {
     "test": "mocha",
     "lint": "tsc && eslint lib/**/*.ts",
@@ -22,7 +22,13 @@
     "semantic-release": "semantic-release"
   },
   "keywords": [
-    "typescript-library-template"
+    "inside-out-async",
+    "defer",
+    "differed",
+    "asyncGenerator",
+    "generator",
+    "promise",
+    "async"
   ],
   "license": "MIT",
   "dependencies": {},
