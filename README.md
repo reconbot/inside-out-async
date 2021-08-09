@@ -1,9 +1,15 @@
 # Inside Out Async
 
-[![codecov](https://codecov.io/gh/reconbot/inside-out-async/branch/master/graph/badge.svg)](https://codecov.io/gh/reconbot/inside-out-async)
+<!-- [![codecov](https://codecov.io/gh/reconbot/inside-out-async/branch/master/graph/badge.svg)](https://codecov.io/gh/reconbot/inside-out-async) -->
 [![Release](https://github.com/reconbot/inside-out-async/actions/workflows/test.yml/badge.svg)](https://github.com/reconbot/inside-out-async/actions/workflows/test.yml)
 
-I [nerd sniped myself](https://twitter.com/reconbot/status/1424476981010255882) and made this library.
+It's pretty handy for turning things that are not promises and generators into promises and generators. Good for testing, but also for having more control over how things execute.
+
+```ts
+npm install inside-out-async
+```
+
+I [nerd sniped myself](https://twitter.com/reconbot/status/1424476981010255882) and made this library. `defer()` is easily written in any new project, `deferGenerator()` is not.
 
 Exports two functions
 
