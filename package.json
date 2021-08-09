@@ -1,7 +1,7 @@
 {
-  "name": "@reconbot/typescript-library-template",
+  "name": "inside-out-async",
   "version": "0.0.0-development",
-  "description": "Rollup your code and types for publishing",
+  "description": "Promises and async iterators are awesome, lets turn them inside out",
   "types": "dist/index.d.ts",
   "exports": {
     "require": "./dist/index.js",
@@ -38,9 +38,10 @@
     "mocha": "^9.0.1",
     "rollup": "^2.52.1",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "semantic-release": "^17.4.4",
+    "streaming-iterables": "^6.0.0",
     "ts-eager": "^2.0.2",
-    "typescript": "^4.3.4",
-    "semantic-release": "^17.4.4"
+    "typescript": "^4.3.4"
   },
   "mocha": {
     "bail": true,
