@@ -24,7 +24,7 @@
     "lint": "tsc && eslint lib/**/*.ts",
     "format": "eslint lib/**/*.ts --fix",
     "clean": "rm -rf dist-ts dist",
-    "build": "npm run clean && tsc -p tsconfig-build.json && rollup -c && ts-eager bundle-types && cp dist/index.d.ts dist/index.d.mts",
+    "build": "npm run clean && tsc -p tsconfig-build.json && rollup -c && node -r esbuild-register bundle-types && cp dist/index.d.ts dist/index.d.mts",
     "prepublishOnly": "npm run build",
     "semantic-release": "semantic-release"
   },
