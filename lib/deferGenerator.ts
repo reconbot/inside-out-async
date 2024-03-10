@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { defer } from './defer'
+import { defer } from './withResolvers'
 
 interface ValueType {
   type: string
@@ -14,6 +14,8 @@ interface ValueValue<T> extends ValueType {
 interface ErrorValue extends ValueType {
   type: 'error'
   error: any
+  done: true
+  value: undefined
 }
 
 interface DoneValue extends ValueType {

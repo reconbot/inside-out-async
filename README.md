@@ -15,13 +15,14 @@ Exports two functions
 
 ## API
 
-- [`defer()`](#defer)
+- [`defer()`](#withResolvers) _deprecated_
 - [`deferGenerator()`](#deferGenerator)
+- [`withResolvers()`](#withResolvers)
 
-### defer
+### withResolvers
 
 ```ts
-function defer<T>(): Deferred<T>
+function withResolvers<T>(): Deferred<T>
 
 interface Deferred<T> {
     promise: Promise<T>
@@ -30,18 +31,20 @@ interface Deferred<T> {
 }
 ```
 
-Creates a promise and control functions. The promise is resolved and rejected by the control functions. Like the `Promise` constructor but inside out.
+Returns an object containing a new Promise object and two functions to resolve or reject it, corresponding to the two parameters passed to the executor of the Promise() constructor. Like the `Promise` constructor but inside out.
+
+*Update 2.0.0*  - With the release of [`Promise.withResolvers`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers) we've renamed `defer` to `withResolvers`. It is a suitable polyfill until browser support and user upgrades reach your particular critical mass.
 
 ```ts
-import { defer } from 'inside-out-async'
+import { withResolvers } from 'inside-out-async'
 import { Trainer } from 'pokemon-trainer'
 
-const pokemonCaught = defer()
+const { resolve, reject, promise } = withResolvers() // exactly the same as Promise.withResolvers()
 const ash = new Trainer()
-ash.on('capture', pokemonCaught.resolve)
-ash.on('error', pokemonCaught.reject)
+ash.on('capture', resolve)
+ash.on('error', reject)
 
-const pokemon = await pokemonCaught.promise
+const pokemon = await promise
 console.log(pokemon) // { name: 'Pikachu', temperament: 'surprised' }
 ```
 
