@@ -1,6 +1,7 @@
-import { assert } from 'chai'
 import { collect } from 'streaming-iterables'
 import { deferGenerator } from './deferGenerator'
+import { describe, it } from 'node:test'
+import assert = require('node:assert')
 
 describe('deferGenerator', () => {
   it('queues up values until queueReturn is called', async () => {
@@ -58,6 +59,7 @@ describe('deferGenerator', () => {
     }
     assert.deepEqual(values, [])
   })
+
   it('ignores queues after return', async () => {
     const deferred = deferGenerator<number, undefined>()
     deferred.queueValue(1)
@@ -68,6 +70,7 @@ describe('deferGenerator', () => {
     const values = await collect(deferred.generator)
     assert.deepEqual(values, [])
   })
+
   it('ignores queues after queueReturn', async () => {
     const deferred = deferGenerator<number, undefined>()
     deferred.queueValue(1)
